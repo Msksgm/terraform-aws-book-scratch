@@ -21,3 +21,12 @@ output "account_id" {
 output "current_region" {
   value = data.aws_region.current.name
 }
+
+# 演習問題
+output "role_name" {
+  value = "ロール名:arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/LambdaExecutionRole"
+}
+
+output "lambda_function_name" {
+  value = "Lambda関数名:arn:aws:lambda:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:function:EmailSendingLambda"
+}
